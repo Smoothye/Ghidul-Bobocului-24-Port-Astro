@@ -122,7 +122,8 @@ a {
             'text'
             'ghid'
             'parteneri';
-        --grid-columns-width: var(--page-width);
+        /* --grid-columns-width: var(--page-width); */
+        --grid-columns-width: 90vw;
         --grid-rows-height: 100px 400px var(--page-height) 100px;
     }
 }
@@ -369,8 +370,8 @@ a {
 
     position: relative;
     
-    width: var(--book-page-width);
-    height: var(--book-page-height);
+    width: calc(var(--book-page-width) * 0.75);
+    height: calc(var(--book-page-height) * 0.75);
 }
 
 #book-narrow {
