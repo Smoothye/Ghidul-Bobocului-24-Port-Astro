@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BookPage from "../components/BookPage.astro";
-import BookPageNarrow from "../components/BookPageNarrow.astro";
+
+import BookAllPages from "../components/BookAllPages.astro";
+import BookAllPagesNarrow from "../components/BookAllPagesNarrow.astro";
 ---
 
 <BaseLayout isBookPage={true}>
@@ -13,11 +14,7 @@ import BookPageNarrow from "../components/BookPageNarrow.astro";
         <button id="buton-cuprins" onclick="goToPage(3)"> CUPRINS </button>
 
         <div id="book">
-            <BookPage pageNumber="1" />
-            <BookPage pageNumber="2" />
-            <BookPage pageNumber="3" />
-            <BookPage pageNumber="4" />
-            <BookPage pageNumber="5" />
+            <BookAllPages numberOfPages="5" />
         </div> <!-- end of book -->
     </div> <!-- end of book wrapper -->
     
@@ -28,16 +25,7 @@ import BookPageNarrow from "../components/BookPageNarrow.astro";
         <button id="buton-cuprins-narrow" onclick="goToPageNarrow(6)"> CUPRINS </button>
         
         <div id="book-narrow">
-            <BookPageNarrow pageNumber="1" />
-            <BookPageNarrow pageNumber="2" />
-            <BookPageNarrow pageNumber="3" />
-            <BookPageNarrow pageNumber="4" />
-            <BookPageNarrow pageNumber="5" />
-            <BookPageNarrow pageNumber="6" />
-            <BookPageNarrow pageNumber="7" />
-            <BookPageNarrow pageNumber="8" />
-            <BookPageNarrow pageNumber="9" />
-            <BookPageNarrow pageNumber="10" />
+            <BookAllPagesNarrow numberOfPages="10" />
         </div> <!-- end of book -->
     </div> <!-- end of book wrapper -->
 

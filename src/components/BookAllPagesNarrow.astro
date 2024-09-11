@@ -1,0 +1,6 @@
+---
+import BookPageNarrow from "./BookPageNarrow.astro";
+const { numberOfPages } = Astro.props;
+---
+
+{Array.from({length: numberOfPages}).map( (val, index) => <BookPageNarrow pageNumber={index + 1} /> )}

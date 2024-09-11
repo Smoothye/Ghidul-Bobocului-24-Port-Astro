@@ -1,0 +1,6 @@
+---
+import BookPage from "./BookPage.astro";
+const { numberOfPages } = Astro.props;
+---
+
+{Array.from({length: numberOfPages}).map( (val, index) => <BookPage pageNumber={index + 1} /> )}

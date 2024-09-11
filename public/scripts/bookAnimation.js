@@ -11,18 +11,18 @@ var currentPageNarrow = 1;
 
 var pages = [];
 var pagesNarrow = [];
-for(let i = 1; i <= numberOfPages; i++) {
+for(let i = 2 * numberOfPages; i >= numberOfPages + 1; i--) {
+
+    pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
+    pagesNarrow[i].style.zIndex = `${numberOfPages - i + 1}`; 
+}
+for(let i = numberOfPages; i >= 1; i--) {
     
     pages[i] = document.getElementById(`page${i}`);
     pages[i].style.zIndex = `${numberOfPages - i + 1}`;
 
     pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
     pagesNarrow[i].style.zIndex = `${numberOfPages - i + 1}`;
-}
-for(let i = numberOfPages + 1; i <= 2 * numberOfPages; i++) {
-
-    pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
-    pagesNarrow[i].style.zIndex = `${numberOfPages - i + 1}`; 
 }
 
 var nextZIndex = numberOfPages;
