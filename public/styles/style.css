@@ -1,7 +1,7 @@
 :root {
     font-family: 'Courier New', Courier, monospace;
-    --page-width: 396.85px;
-    --page-height: 559.37px;
+    --page-width: 396px;
+    --page-height: 559px;
     
     /* ghid */
     --page-flip-duration: 1s;
@@ -320,8 +320,7 @@ a {
 .front,
 .back {
 
-    background-color: brown;
-    border: 2px solid black;
+    /* background-color: brown; */
 
     position: absolute;
     width: 100%;

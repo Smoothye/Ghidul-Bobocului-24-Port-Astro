@@ -3,8 +3,8 @@ var prevButton = document.getElementById("prev");
 var nextButton = document.getElementById("next");
 var butonCuprins = document.getElementById("buton-cuprins");
 
-var numberOfPages = 5;
-var numberOfPagesNarrow = 2 * numberOfPages;
+var numberOfPagesNarrow = 10;
+var numberOfPages = numberOfPagesNarrow / 2;
 
 var currentPage = 1;
 var currentPageNarrow = 1;

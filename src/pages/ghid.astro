@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import BookAllPages from "../components/BookAllPages.astro";
 import BookAllPagesNarrow from "../components/BookAllPagesNarrow.astro";
+
+const numberOfPages = 10; //!!! NUMARUL DE PAGINI DIN public/scripts/bookAnimation.js !!!
 ---
 
 <BaseLayout isBookPage={true}>
@@ -11,10 +13,10 @@ import BookAllPagesNarrow from "../components/BookAllPagesNarrow.astro";
         
         <button id="prev" onclick="animatie(-1)"></button>
         <button id="next" onclick="animatie(1)"></button>
-        <button id="buton-cuprins" onclick="goToPage(3)"> CUPRINS </button>
+        <button id="buton-cuprins" onclick="goToPage(4)"> CUPRINS </button>
 
         <div id="book">
-            <BookAllPages numberOfPages="5" />
+            <BookAllPages numberOfPages={numberOfPages / 2} />
         </div> <!-- end of book -->
     </div> <!-- end of book wrapper -->
     
@@ -25,7 +27,7 @@ import BookAllPagesNarrow from "../components/BookAllPagesNarrow.astro";
         <button id="buton-cuprins-narrow" onclick="goToPageNarrow(6)"> CUPRINS </button>
         
         <div id="book-narrow">
-            <BookAllPagesNarrow numberOfPages="10" />
+            <BookAllPagesNarrow numberOfPages={numberOfPages} />
         </div> <!-- end of book -->
     </div> <!-- end of book wrapper -->
 

@@ -3,4 +3,10 @@ import BookPageNarrow from "./BookPageNarrow.astro";
 const { numberOfPages } = Astro.props;
 ---
 
-{Array.from({length: numberOfPages}).map( (val, index) => <BookPageNarrow pageNumber={index + 1} /> )}
+{Array.from({length: numberOfPages}).map(
+    
+    (val, index) => <BookPageNarrow
+                        pageNumber={index + 1}
+                        img=`media/pagini/web-${index + 1}.svg`
+                    />
+)}
