@@ -1,0 +1,86 @@
+---
+import "../styles/style.css"
+import { ViewTransitions } from "astro:transitions";
+
+const animation = {
+
+	old: [
+		{
+			name: "fade-out",
+			duration: "300ms",
+			easing: "ease-in",
+			fillMode: "both",
+		},
+		{
+			name: "slide-out",
+			duration: "600ms",
+			easing: "ease-in",
+			fillMode: "both",
+		},
+	],
+	new: [
+		{
+			name: "fade-in",
+			delay: "600ms",
+			duration: "600ms",
+			easing: "ease-in-out",
+			fillMode: "both",
+		},
+		{
+			name: "slide-in",
+			duration: "600ms",
+			easing: "ease-in-out",
+			fillMode: "both",
+		},
+	],
+};
+
+const customTransition = {
+
+	forwards: animation,
+	backwards: animation,
+};
+---
+
+<!DOCTYPE html>
+<html transition:animate={customTransition}>
+
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title> Ghidul Bobocului </title>
+		<ViewTransitions />
+	</head>
+
+	<body class="flex">
+
+		<main class="flex">
+			
+			<slot />
+			
+		</main>
+
+	</body>
+
+</html>
+
+<style is:global>
+	@keyframes fade-out {
+		
+		to { opacity: 0; }
+	}
+	@keyframes fade-in {
+		
+		from { opacity: 0; }
+	}
+	@keyframes slide-out {
+		
+		to { transform: translateY(90px); }
+	}
+	@keyframes slide-in {
+		
+		from { transform: translateY(-90px); }
+	}
+</style>

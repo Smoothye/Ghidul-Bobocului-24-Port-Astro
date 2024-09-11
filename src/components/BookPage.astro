@@ -1,0 +1,18 @@
+---
+const {pageNumber} = Astro.props;
+---
+
+<div id=`page${pageNumber}` class="page">
+    <div class="front">
+        <div id=`front${pageNumber}` class="front-content">
+            <h1> Front {pageNumber} </h1>
+        </div>
+        <div class="right-arrow"> &rarr; </div>
+    </div>
+    <div class="back">
+        <div id=`back${pageNumber}` class="back-content">
+            <h1> Back {pageNumber} </h1>
+        </div>
+        <div class="right-arrow"> &rarr; </div>
+    </div>
+</div>
