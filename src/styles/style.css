@@ -122,7 +122,6 @@ a {
             'text'
             'ghid'
             'parteneri';
-        /* --grid-columns-width: var(--page-width); */
         --grid-columns-width: 90vw;
         --grid-rows-height: 100px 400px var(--page-height) 100px;
     }
@@ -356,6 +355,10 @@ a {
 }
 
 /* ghid telefon (width < 600px) */
+
+input[type="button"] {
+    touch-action: manipulation;
+}
 
 @media screen and (max-width: 37.5em /* 600px */) { /* small screen change display mode */
     
