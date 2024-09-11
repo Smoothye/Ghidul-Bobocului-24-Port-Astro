@@ -91,6 +91,8 @@ button {
     background-color: transparent;
 
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 .right-arrow, .left-arrow {
@@ -123,7 +125,7 @@ a {
             'ghid'
             'parteneri';
         --grid-columns-width: 90vw;
-        --grid-rows-height: 100px 400px var(--page-height) 100px;
+        --grid-rows-height: 100px minmax(fit-content, 400px) var(--page-height) 100px;
     }
 }
 @media screen and (min-width: 37.5em /* 600px */) and (max-width: 65em /* 1040px */) {
@@ -186,7 +188,7 @@ a {
 #coperta-ghid {
 
     width: var(--ghid-home-page-width);
-    height: var(--ghid-home-page-height);
+    height: auto;
     transition: var(--viteza-zoom-on-hover);
 }
 #coperta-ghid:hover {
