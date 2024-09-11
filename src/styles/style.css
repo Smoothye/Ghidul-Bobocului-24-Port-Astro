@@ -45,8 +45,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
-    touch-action: manipulation;
 }
 
 body {
@@ -362,7 +360,10 @@ a {
     
     #book-wrapper { display: none !important; }
     #book-wrapper-narrow { display: inline !important; }
-    :root { --page-flip-duration: 1.5s; }
+    :root {
+        touch-action: manipulation; /* disable double-tap zoom */
+        --page-flip-duration: 1.5s;
+    }
 }
 
 #book-wrapper-narrow {
