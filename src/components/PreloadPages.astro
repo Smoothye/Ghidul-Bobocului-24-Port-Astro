@@ -1,0 +1,7 @@
+---
+const { numberOfPages } = Astro.props;
+---
+
+{Array.from({length: numberOfPages}).map(
+    (val, index) => <link rel="preload" as="image" href=`media/pagini/web-${index + 1}.svg`>
+)}

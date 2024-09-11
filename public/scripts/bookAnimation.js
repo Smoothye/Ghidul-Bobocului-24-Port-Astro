@@ -3,7 +3,9 @@ var prevButton = document.getElementById("prev");
 var nextButton = document.getElementById("next");
 var butonCuprins = document.getElementById("buton-cuprins");
 
-var numberOfPagesNarrow = 10;
+//!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro            !!!
+//!!!    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro    !!!
+var numberOfPagesNarrow = 88;
 var numberOfPages = numberOfPagesNarrow / 2;
 
 var currentPage = 1;

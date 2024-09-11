@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import Footer from "../components/Footer.astro";
+import PreloadPages from "../components/PreloadPages.astro";
 
 const animation = {
 
@@ -54,6 +55,10 @@ const { isBookPage = false, showFooter = true } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title> Ghidul Bobocului </title>
 		<link rel="stylesheet" href="styles/style.css">
+
+		<!-- !!! NUMARUL DE PAGINI DIN  public/scripts/bookAnimation.js !!! -->
+		<!-- !!!   SI DIN <HEAD> DIN    src/pages/ghid.astro            !!! -->
+		<PreloadPages numberOfPages="88" />
 
 		<ViewTransitions />
 	</head>
