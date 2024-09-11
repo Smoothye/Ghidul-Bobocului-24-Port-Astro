@@ -4,6 +4,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout>
 
+	<a href="/homePage" id="goHomePage" style="display: none;"></a>
 	<div id="welcome-banner"> Banner / Welcome page / Ceva </div>
 
+	<script is:inline>
+
+		addEventListener("load", () => {
+
+			setTimeout(
+				() => { document.getElementById("goHomePage").click(); },
+				2000
+			);
+		});
+
+	</script>
 </BaseLayout>
