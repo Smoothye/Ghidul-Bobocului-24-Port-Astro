@@ -40,6 +40,8 @@ const customTransition = {
 	forwards: animation,
 	backwards: animation,
 };
+
+const {isBookPage = false} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -51,6 +53,11 @@ const customTransition = {
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title> Ghidul Bobocului </title>
+
+		{isBookPage && 
+			<script src="/src/scripts/bookAnimation.js" defer></script>
+		}
+
 		<ViewTransitions />
 	</head>
 

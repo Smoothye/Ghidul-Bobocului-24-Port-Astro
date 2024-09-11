@@ -4,8 +4,8 @@ import BookPage from "../components/BookPage.astro";
 import BookPageNarrow from "../components/BookPageNarrow.astro";
 ---
 
-<script src="../src/scripts/bookAnimation.js" defer></script>
-<BaseLayout>
+<BaseLayout isBookPage={true}>
+    
     <div id="book-wrapper">
         
         <button id="prev" onclick="animatie(-1)"></button>

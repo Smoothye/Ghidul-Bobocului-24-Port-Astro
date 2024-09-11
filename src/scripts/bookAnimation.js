@@ -27,11 +27,6 @@ for(let i = numberOfPages + 1; i <= 2 * numberOfPages; i++) {
 
 var nextZIndex = numberOfPages;
 
-addEventListener("astro:page-load", animatie);
-addEventListener("astro:page-load", goToPage);
-addEventListener("astro:page-load", animatieNarrow);
-addEventListener("astro:page-load", goToPageNarrow);
-
 function animatie(id) { // -1 = previous page | 1 = next page
 
     if(id === -1) { // previous page
