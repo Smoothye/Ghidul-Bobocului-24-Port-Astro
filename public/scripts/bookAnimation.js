@@ -5,7 +5,7 @@ var butonCuprins = document.getElementById("buton-cuprins");
 
 //!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro            !!!
 //!!!    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro    !!!
-var numberOfPagesNarrow = 88;
+var numberOfPagesNarrow = 10;
 var numberOfPages = numberOfPagesNarrow / 2;
 
 var currentPage = 1;
