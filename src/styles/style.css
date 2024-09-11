@@ -358,10 +358,6 @@ a {
 
 /* ghid telefon (width < 600px) */
 
-input[type="button"] {
-    touch-action: manipulation;
-}
-
 @media screen and (max-width: 37.5em /* 600px */) { /* small screen change display mode */
     
     #book-wrapper { display: none !important; }
