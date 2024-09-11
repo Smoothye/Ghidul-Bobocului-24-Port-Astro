@@ -1,5 +1,4 @@
 ---
-import "../styles/style.css"
 import { ViewTransitions } from "astro:transitions";
 
 const animation = {
@@ -53,6 +52,7 @@ const {isBookPage = false} = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title> Ghidul Bobocului </title>
+		<link rel="stylesheet" href="styles/style.css">
 
 		<ViewTransitions />
 	</head>
