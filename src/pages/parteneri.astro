@@ -3,14 +3,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CardParteneri from "../components/CardParteneri.astro"
 ---
 <BaseLayout>
-    <div class="parteneri flex flex-orizontal">
     
-        <CardParteneri/>
-        <CardParteneri/>
-        <CardParteneri/>
-        <CardParteneri/>
-        <CardParteneri/>
-        <CardParteneri/>
+    <div class="flex flex-vertical">
+        <div id="text-parteneri">
+            Ceva text multumiri parteneri. <br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+        </div>
+    
+        <div class="parteneri flex flex-orizontal flex-gap">
         
+            <CardParteneri/>
+            <CardParteneri/>
+            <CardParteneri/>
+            <CardParteneri/>
+            <CardParteneri/>
+            <CardParteneri/>
+            
+        </div>
     </div>
+
 </BaseLayout>

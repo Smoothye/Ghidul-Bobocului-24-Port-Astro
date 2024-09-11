@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/Footer.astro";
 
 const animation = {
 
@@ -40,7 +41,7 @@ const customTransition = {
 	backwards: animation,
 };
 
-const {isBookPage = false} = Astro.props;
+const { isBookPage = false, showFooter = true } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -57,13 +58,15 @@ const {isBookPage = false} = Astro.props;
 		<ViewTransitions />
 	</head>
 
-	<body class="flex">
+	<body>
 
 		<main class="flex">
-			
+
 			<slot />
 			
 		</main>
+
+		{ showFooter && <Footer/>}
 
 		{isBookPage && 
 			<script src="/scripts/bookAnimation.js"></script>

@@ -50,7 +50,7 @@
 body {
 
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 
     font-size: 2em; /*temporary*/
     overflow-x: hidden;
@@ -59,28 +59,7 @@ body {
 main {
     
     width: 100%;
-    height: 100%;
-}
-
-.flex {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-orizontal {
-
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--flex-item-gap);
-}
-
-.flex-vertical {
-
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: var(--flex-item-gap);
+    min-height: inherit;
 }
 
 button {
@@ -92,7 +71,6 @@ button {
 
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-
 }
 
 .right-arrow, .left-arrow {
@@ -112,6 +90,20 @@ a {
     width: 100%;
     height: 100%;
 }
+
+/* flex */
+
+.flex {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-orizontal, .flex-vertical { flex-wrap: wrap; }
+.flex-orizontal { flex-direction: row; }
+.flex-vertical { flex-direction: column; }
+.flex-gap { gap: var(--flex-item-gap); }
 
 /* home page */
 
@@ -199,12 +191,24 @@ a {
 
 /* pagina parteneri */
 
+#text-parteneri {
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 30px 20%;
+
+    text-align: justify;
+
+    background-color: lightcoral;
+}
+
 .parteneri {
 
-    width: 80%;
-    padding: 40px;
+    width: 100%;
+    padding: 30px 15%;
 
-    margin: auto;
+    background-color: lightgray;
 }
 
 .card-partener{
