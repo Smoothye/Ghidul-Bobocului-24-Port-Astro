@@ -54,10 +54,6 @@ const {isBookPage = false} = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title> Ghidul Bobocului </title>
 
-		{isBookPage && 
-			<script src="../scripts/bookAnimation.js" defer></script>
-		}
-
 		<ViewTransitions />
 	</head>
 
@@ -69,6 +65,9 @@ const {isBookPage = false} = Astro.props;
 			
 		</main>
 
+		{isBookPage && 
+			<script src="/scripts/bookAnimation.js"></script>
+		}
 	</body>
 
 </html>
