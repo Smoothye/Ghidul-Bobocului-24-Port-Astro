@@ -84,7 +84,7 @@ function animatie(id) { // -1 = previous page | 1 = next page
 
 function goToPage(pageNumber) {
 
-    while(currentPage != pageNumber)
+    while(currentPage !== pageNumber)
         animatie(currentPage < pageNumber ? 1 : -1);
 }
 
@@ -107,18 +107,16 @@ function animatieNarrow(id) {
 
         prevButtonNarrow.style.display = "none";
         nextButtonNarrow.style.display = "none";
-        pagesNarrow[6].style.zIndex = "100";
     }
     else {
         
         prevButtonNarrow.style.display = "inline";
         nextButtonNarrow.style.display = "inline";
-        pagesNarrow[6].style.zIndex = `${numberOfPagesNarrow - 5}`
     }
 }
 
 function goToPageNarrow(pageNumber) {
 
-    while(currentPageNarrow != pageNumber)
+    while(currentPageNarrow !== pageNumber)
         animatieNarrow(currentPageNarrow < pageNumber ? 1 : -1);
 }
