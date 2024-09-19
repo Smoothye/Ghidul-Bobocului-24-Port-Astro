@@ -3,9 +3,12 @@ var prevButton = document.getElementById("prev");
 var nextButton = document.getElementById("next");
 var butonCuprins = document.getElementById("buton-cuprins");
 
+var prevButtonNarrow = document.getElementById("prev-narrow");
+var nextButtonNarrow = document.getElementById("next-narrow");
+
 //!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro            !!!
 //!!!    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro    !!!
-var numberOfPagesNarrow = 10;
+var numberOfPagesNarrow = 88;
 var numberOfPages = numberOfPagesNarrow / 2;
 
 var currentPage = 1;
@@ -16,7 +19,7 @@ var pagesNarrow = [];
 for(let i = 2 * numberOfPages; i >= numberOfPages + 1; i--) {
 
     pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
-    pagesNarrow[i].style.zIndex = `${numberOfPages - i + 1}`; 
+    pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`; 
 }
 for(let i = numberOfPages; i >= 1; i--) {
     
@@ -24,7 +27,7 @@ for(let i = numberOfPages; i >= 1; i--) {
     pages[i].style.zIndex = `${numberOfPages - i + 1}`;
 
     pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
-    pagesNarrow[i].style.zIndex = `${numberOfPages - i + 1}`;
+    pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`;
 }
 
 var nextZIndex = numberOfPages;
@@ -41,6 +44,7 @@ function animatie(id) { // -1 = previous page | 1 = next page
         }
 
         currentPage--;
+        prevButton.style.display = (currentPage === 4 ? "none" : "inline");
 
         if(currentPage === 1) {
 
@@ -66,6 +70,7 @@ function animatie(id) { // -1 = previous page | 1 = next page
         }
         
         currentPage++;
+        prevButton.style.display = (currentPage === 4 ? "none" : "inline");
 
         if(currentPage === numberOfPages + 1) {
 
@@ -74,7 +79,7 @@ function animatie(id) { // -1 = previous page | 1 = next page
         }
     }
 
-    butonCuprins.style.left = (currentPage <= 3 ? "0px" : "-100px");
+    butonCuprins.style.left = (currentPage <= 3 ? "0px" : "-100px"); // translate left buton cuprin
 }
 
 function goToPage(pageNumber) {
@@ -96,6 +101,19 @@ function animatieNarrow(id) {
         if(currentPageNarrow === numberOfPagesNarrow) return;
 
         pagesNarrow[currentPageNarrow++].classList.add("flipped");
+    }
+
+    if(currentPageNarrow === 6) {
+
+        prevButtonNarrow.style.display = "none";
+        nextButtonNarrow.style.display = "none";
+        pagesNarrow[6].style.zIndex = "100";
+    }
+    else {
+        
+        prevButtonNarrow.style.display = "inline";
+        nextButtonNarrow.style.display = "inline";
+        pagesNarrow[6].style.zIndex = `${numberOfPagesNarrow - 5}`
     }
 }
 

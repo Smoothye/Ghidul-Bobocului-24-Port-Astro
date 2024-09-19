@@ -6,7 +6,7 @@ import BookAllPagesNarrow from "../components/BookAllPagesNarrow.astro";
 
 //!!! NUMARUL DE PAGINI DIN public/scripts/bookAnimation.js !!!
 //!!!    SI DIN <HEAD> DIN  src/layouts/BaseLayout.astro    !!!
-const numberOfPages = 10;
+const numberOfPages = 88;
 ---
 
 <BaseLayout isBookPage={true}>
@@ -31,6 +31,8 @@ const numberOfPages = 10;
         <div id="book-narrow">
             <BookAllPagesNarrow numberOfPages={numberOfPages} />
         </div> <!-- end of book -->
+        <div class="right-arrow" onclick="animatieNarrow(1)"> &rarr; </div>
+        <div class="left-arrow" onclick="animatieNarrow(-1)"> &larr; </div>
     </div> <!-- end of book wrapper -->
 
 </BaseLayout>

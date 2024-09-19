@@ -5,8 +5,17 @@ const { numberOfPages } = Astro.props;
 
 {Array.from({length: numberOfPages}).map(
     
-    (val, index) => <BookPageNarrow
-                        pageNumber={index + 1}
-                        img=`media/pagini/web-${index + 1}.svg`
-                    />
+    (val, index) => {
+        return (index + 1 === 6) ?
+
+        <BookPageNarrow
+            pageNumber={index + 1}
+            img=`media/pagini/ghid-${index + 1}.svg`
+            paginaCuprins="true"
+        /> :
+        <BookPageNarrow
+            pageNumber={index + 1}
+            img=`media/pagini/ghid-${index + 1}.svg`
+        />
+    }
 )}
