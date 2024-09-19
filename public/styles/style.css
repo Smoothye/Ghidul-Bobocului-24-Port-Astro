@@ -383,8 +383,10 @@ a {
 
     position: relative;
     
-    width: calc(var(--book-page-width) * 0.75);
-    height: calc(var(--book-page-height) * 0.75);
+    width: var(--book-page-width);
+    height: var(--book-page-height);
+
+    scale: 0.75;
 }
 
 #book-narrow {
