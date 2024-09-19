@@ -11,9 +11,11 @@ const { numberOfPages } = Astro.props;
         <BookPage   pageNumber={index + 1}
                     frontImg=`media/pagini/ghid-${2 * (index + 1) - 1}.svg`
                     backImg=`media/pagini/ghid-${2 * (index + 1)}.svg`
-                    paginaCuprins="true" /> :
+                    paginaCuprins="true"
+        /> :
         <BookPage   pageNumber={index + 1}
                     frontImg=`media/pagini/ghid-${2 * (index + 1) - 1}.svg`
-                    backImg=`media/pagini/ghid-${2 * (index + 1)}.svg` />
+                    backImg=`media/pagini/ghid-${2 * (index + 1)}.svg`
+        />
     }
 )}

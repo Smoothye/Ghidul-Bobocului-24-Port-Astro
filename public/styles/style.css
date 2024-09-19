@@ -250,8 +250,10 @@ a {
     
     :root {
 
-        --book-page-width: calc(var(--page-width) * 0.75);
-        --book-page-height: calc(var(--page-height) * 0.75);
+        #book-wrapper {
+
+            scale: 0.75;
+        }
     }
 }
 
