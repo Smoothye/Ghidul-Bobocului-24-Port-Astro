@@ -8,7 +8,7 @@ var nextButtonNarrow = document.getElementById("next-narrow");
 
 //!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro            !!!
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro       !!!
-var numberOfPagesNarrow = 10;
+var numberOfPagesNarrow = 88;
 var numberOfPages = numberOfPagesNarrow / 2;
 
 var currentPage = 1;
