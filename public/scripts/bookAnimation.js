@@ -3,31 +3,16 @@ var prevButton = document.getElementById("prev");
 var nextButton = document.getElementById("next");
 var butonCuprins = document.getElementById("buton-cuprins");
 
-var prevButtonNarrow = document.getElementById("prev-narrow");
-var nextButtonNarrow = document.getElementById("next-narrow");
-
 //!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro            !!!
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro       !!!
-var numberOfPagesNarrow = 88;
-var numberOfPages = numberOfPagesNarrow / 2;
-
+var numberOfPages = 44; // numar total de pagini (ar trebui sa fie numar par) impartit la 2
 var currentPage = 1;
-var currentPageNarrow = 1;
 
 var pages = [];
-var pagesNarrow = [];
-for(let i = 2 * numberOfPages; i >= numberOfPages + 1; i--) {
-
-    pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
-    pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`; 
-}
 for(let i = numberOfPages; i >= 1; i--) {
     
     pages[i] = document.getElementById(`page${i}`);
     pages[i].style.zIndex = `${numberOfPages - i + 1}`;
-
-    pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
-    pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`;
 }
 
 var nextZIndex = numberOfPages;
@@ -86,37 +71,4 @@ function goToPage(pageNumber) {
 
     while(currentPage !== pageNumber)
         animatie(currentPage < pageNumber ? 1 : -1);
-}
-
-function animatieNarrow(id) {
-
-    if(id === -1) { // previous page
-
-        if(currentPageNarrow === 1) return;
-
-        pagesNarrow[--currentPageNarrow].classList.remove("flipped");
-    }
-    else { // next page
-
-        if(currentPageNarrow === numberOfPagesNarrow) return;
-
-        pagesNarrow[currentPageNarrow++].classList.add("flipped");
-    }
-
-    if(currentPageNarrow === 6) {
-
-        prevButtonNarrow.style.display = "none";
-        nextButtonNarrow.style.display = "none";
-    }
-    else {
-        
-        prevButtonNarrow.style.display = "inline";
-        nextButtonNarrow.style.display = "inline";
-    }
-}
-
-function goToPageNarrow(pageNumber) {
-
-    while(currentPageNarrow !== pageNumber)
-        animatieNarrow(currentPageNarrow < pageNumber ? 1 : -1);
 }
