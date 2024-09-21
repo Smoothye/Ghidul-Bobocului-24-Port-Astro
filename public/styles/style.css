@@ -96,6 +96,11 @@ a {
     cursor: pointer;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+}
+
 /* flex */
 
 .flex {
@@ -312,6 +317,8 @@ a {
 
 .page {
 
+    display: none;
+
     width: 100%;
     height: 100%;
 
@@ -322,6 +329,10 @@ a {
     perspective: var(--page-flip-perspective);
 
     transition: z-index 200ms ease;
+    will-change: z-index;
+}
+.page.active {
+    display: block;
 }
 
 .front,
@@ -337,6 +348,8 @@ a {
     transform-origin: left;
 
     transition: transform var(--page-flip-duration);
+
+    will-change: transform;
 }
 
 .front {

@@ -8,15 +8,68 @@ var butonCuprins = document.getElementById("buton-cuprins");
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro              !!!
 var numberOfPages = 44; // numar total de pagini (ar trebui sa fie numar par) impartit la 2
 var currentPage = 1;
+var visiblePages = 6;
+
+var nextZIndex = numberOfPages;
 
 var pages = [];
+
+function loadPage(page) {
+
+    page.classList.add("active");
+
+    const imgs = page.querySelectorAll("img");
+    const frontImg = imgs[0];
+    const backImg = imgs[1];
+
+    if(frontImg && frontImg.dataset.src) {
+
+        frontImg.src = frontImg.dataset.src;
+        frontImg.removeAttribute("data-set");
+    }
+    if(backImg && backImg.dataset.src) {
+
+        backImg.src = backImg.dataset.src;
+        backImg.removeAttribute("data-set");
+    }
+}
+
+function unloadPage(page) {
+
+    page.classList.remove("active");
+
+    const imgs = page.querySelectorAll("img");
+    const frontImg = imgs[0];
+    const backImg = imgs[1];
+
+    if(frontImg && !frontImg.dataset.src) {
+
+        frontImg.dataset.src = frontImg.src;
+        frontImg.src = "";
+    }
+    if(backImg && !backImg.dataset.src) {
+
+        backImg.dataset.src = backImg.src;
+        backImg.src = "";
+    }
+}
+
 for(let i = numberOfPages; i >= 1; i--) {
     
     pages[i] = document.getElementById(`page${i}`);
     pages[i].style.zIndex = `${numberOfPages - i + 1}`;
-}
 
-var nextZIndex = numberOfPages;
+    const imgs = pages[i].querySelectorAll("img");
+
+    const frontImg = imgs.item(0);
+    const backImg = imgs.item(1);
+
+    if(i > currentPage - visiblePages && i < currentPage + visiblePages)
+        loadPage(pages[i]);
+    
+    else
+        unloadPage(pages[i]);
+}
 
 function animatie(id) { // -1 = previous page | 1 = next page
 
@@ -41,6 +94,12 @@ function animatie(id) { // -1 = previous page | 1 = next page
         pages[currentPage].classList.remove("flipped");
         pages[currentPage].style.zIndex = `${nextZIndex}`;
         nextZIndex++;
+
+        if(currentPage - visiblePages >= 1)
+            loadPage(pages[currentPage - visiblePages]);
+        
+        if(currentPage + visiblePages <= numberOfPages)
+            unloadPage(pages[currentPage + visiblePages]);
     }
     else { // next page
         if(currentPage === numberOfPages + 1) return;
@@ -63,6 +122,12 @@ function animatie(id) { // -1 = previous page | 1 = next page
             bookWrapper.style.transform = "translateX(100%)";
             nextButton.style.display = "none";
         }
+
+        if(currentPage - visiblePages >= 1)
+            unloadPage(pages[currentPage - visiblePages]);
+        
+        if(currentPage + visiblePages <= numberOfPages)
+            loadPage(pages[currentPage + visiblePages]);
     }
 
     butonCuprins.style.left = (currentPage <= 3 ? "0px" : "-100px"); // translate left buton cuprin
@@ -70,8 +135,8 @@ function animatie(id) { // -1 = previous page | 1 = next page
 
 function goToPage(pageNumber) {
 
-    // daca trebuie sa mearga mai putin de 20 de pagini se misca mai incet
-    const flipDelay = ( Math.abs(pageNumber - currentPage) < 20 ? 100 : 10 );
+    // daca trebuie sa mearga mai putin de 6 de pagini se misca mai incet
+    const flipDelay = ( Math.abs(pageNumber - currentPage) < 6 ? 100 : 10 );
 
     function flip() {
 
