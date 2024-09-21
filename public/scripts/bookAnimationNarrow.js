@@ -10,7 +10,7 @@ var visiblePages = 10;
 
 var pagesNarrow = [];
 
-function loadPage(page) {
+function loadPageNarrow(page) {
 
     page.classList.add("active");
 
@@ -23,7 +23,7 @@ function loadPage(page) {
     }
 }
 
-function unloadPage(page) {
+function unloadPageNarrow(page) {
 
     page.classList.remove("active");
 
@@ -42,10 +42,10 @@ for(let i = numberOfPagesNarrow; i >= 1; i--) {
     pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`; 
 
     if(i > currentPageNarrow - visiblePages && i < currentPageNarrow + visiblePages)
-        loadPage(pagesNarrow[i]);
+        loadPageNarrow(pagesNarrow[i]);
 
     else
-        unloadPage(pagesNarrow[i]);
+        unloadPageNarrow(pagesNarrow[i]);
 }
 
 function animatieNarrow(id) {
@@ -57,10 +57,10 @@ function animatieNarrow(id) {
         pagesNarrow[--currentPageNarrow].classList.remove("flipped");
 
         if(currentPageNarrow - visiblePages >= 1)
-            loadPage(pagesNarrow[currentPageNarrow - visiblePages]);
+            loadPageNarrow(pagesNarrow[currentPageNarrow - visiblePages]);
 
         if(currentPageNarrow + visiblePages <= numberOfPagesNarrow)
-            unloadPage(pagesNarrow[currentPageNarrow + visiblePages]);
+            unloadPageNarrow(pagesNarrow[currentPageNarrow + visiblePages]);
     }
     else { // next page
 
@@ -69,10 +69,10 @@ function animatieNarrow(id) {
         pagesNarrow[currentPageNarrow++].classList.add("flipped");
 
         if(currentPageNarrow - visiblePages >= 1)
-            unloadPage(pagesNarrow[currentPageNarrow - visiblePages]);
+            unloadPageNarrow(pagesNarrow[currentPageNarrow - visiblePages]);
 
         if(currentPageNarrow + visiblePages <= numberOfPagesNarrow)
-            loadPage(pagesNarrow[currentPageNarrow + visiblePages]);
+            loadPageNarrow(pagesNarrow[currentPageNarrow + visiblePages]);
     }
 
     prevButtonNarrow.style.display =
