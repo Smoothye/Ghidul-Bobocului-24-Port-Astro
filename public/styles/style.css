@@ -377,6 +377,10 @@ a {
         --page-flip-duration: 1.5s;
     }
 }
+@media screen and (max-width: 26em /* 416px */) {
+
+    #book-wrapper-narrow { scale: 0.75; }
+}
 
 #book-wrapper-narrow {
 
@@ -386,8 +390,6 @@ a {
     
     width: var(--book-page-width);
     height: var(--book-page-height);
-
-    scale: 0.75;
 }
 
 #book-narrow {
