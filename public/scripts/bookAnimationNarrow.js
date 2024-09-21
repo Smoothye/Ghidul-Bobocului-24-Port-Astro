@@ -6,7 +6,7 @@ var nextButtonNarrow = document.getElementById("next-narrow");
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro          !!!
 var numberOfPagesNarrow = 88;
 var currentPageNarrow = 1;
-var visiblePagesNarrowNarrow = 5; // si fata si spate
+var visiblePagesNarrow = 5; // si fata si spate
 
 var pagesNarrow = [];
 
@@ -41,7 +41,7 @@ for(let i = numberOfPagesNarrow; i >= 1; i--) {
     pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
     pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`; 
 
-    if(i > currentPageNarrow - visiblePagesNarrowNarrow && i < currentPageNarrow + visiblePagesNarrowNarrow)
+    if(i > currentPageNarrow - visiblePagesNarrow && i < currentPageNarrow + visiblePagesNarrow)
         loadPageNarrow(pagesNarrow[i]);
 
     else
@@ -66,13 +66,14 @@ function animatieNarrow(id) {
 
         if(currentPageNarrow === numberOfPagesNarrow) return;
 
-        pagesNarrow[currentPageNarrow++].classList.add("flipped");
-
         if(currentPageNarrow - visiblePagesNarrow >= 1)
             unloadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
 
         if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
             loadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
+
+        pagesNarrow[currentPageNarrow++].classList.add("flipped");
+
     }
 
     prevButtonNarrow.style.display =
