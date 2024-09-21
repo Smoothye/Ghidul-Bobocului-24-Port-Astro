@@ -320,6 +320,8 @@ a {
     left: 0;
 
     perspective: var(--page-flip-perspective);
+
+    transition: z-index 200ms ease;
 }
 
 .front,

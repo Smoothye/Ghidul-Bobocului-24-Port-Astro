@@ -69,6 +69,16 @@ function animatie(id) { // -1 = previous page | 1 = next page
 
 function goToPage(pageNumber) {
 
-    while(currentPage !== pageNumber)
-        animatie(currentPage < pageNumber ? 1 : -1);
+    function flip() {
+
+        if(currentPage !== pageNumber) {
+
+            animatie(currentPage < pageNumber ? 1 : -1)
+            setTimeout(flip, 10);
+        }
+    }
+
+    flip();
+    // while(currentPage !== pageNumber)
+    //     animatie(currentPage < pageNumber ? 1 : -1);
 }
