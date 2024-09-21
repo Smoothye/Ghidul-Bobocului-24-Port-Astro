@@ -6,7 +6,7 @@ var nextButtonNarrow = document.getElementById("next-narrow");
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro          !!!
 var numberOfPagesNarrow = 88;
 var currentPageNarrow = 1;
-var visiblePages = 10;
+var visiblePagesNarrowNarrow = 10;
 
 var pagesNarrow = [];
 
@@ -41,7 +41,7 @@ for(let i = numberOfPagesNarrow; i >= 1; i--) {
     pagesNarrow[i] = document.getElementById(`page${i}-narrow`);
     pagesNarrow[i].style.zIndex = `${numberOfPagesNarrow - i + 1}`; 
 
-    if(i > currentPageNarrow - visiblePages && i < currentPageNarrow + visiblePages)
+    if(i > currentPageNarrow - visiblePagesNarrowNarrow && i < currentPageNarrow + visiblePagesNarrowNarrow)
         loadPageNarrow(pagesNarrow[i]);
 
     else
@@ -56,11 +56,11 @@ function animatieNarrow(id) {
 
         pagesNarrow[--currentPageNarrow].classList.remove("flipped");
 
-        if(currentPageNarrow - visiblePages >= 1)
-            loadPageNarrow(pagesNarrow[currentPageNarrow - visiblePages]);
+        if(currentPageNarrow - visiblePagesNarrow >= 1)
+            loadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
 
-        if(currentPageNarrow + visiblePages <= numberOfPagesNarrow)
-            unloadPageNarrow(pagesNarrow[currentPageNarrow + visiblePages]);
+        if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
+            unloadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
     }
     else { // next page
 
@@ -68,11 +68,11 @@ function animatieNarrow(id) {
 
         pagesNarrow[currentPageNarrow++].classList.add("flipped");
 
-        if(currentPageNarrow - visiblePages >= 1)
-            unloadPageNarrow(pagesNarrow[currentPageNarrow - visiblePages]);
+        if(currentPageNarrow - visiblePagesNarrow >= 1)
+            unloadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
 
-        if(currentPageNarrow + visiblePages <= numberOfPagesNarrow)
-            loadPageNarrow(pagesNarrow[currentPageNarrow + visiblePages]);
+        if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
+            loadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
     }
 
     prevButtonNarrow.style.display =

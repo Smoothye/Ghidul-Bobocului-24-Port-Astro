@@ -8,7 +8,7 @@ var butonCuprins = document.getElementById("buton-cuprins");
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro              !!!
 var numberOfPages = 44; // numar total de pagini (ar trebui sa fie numar par) impartit la 2
 var currentPage = 1;
-var visiblePages = 6;
+var visiblePages = 4; // si fata si spate
 
 var nextZIndex = numberOfPages;
 
@@ -58,11 +58,6 @@ for(let i = numberOfPages; i >= 1; i--) {
     
     pages[i] = document.getElementById(`page${i}`);
     pages[i].style.zIndex = `${numberOfPages - i + 1}`;
-
-    const imgs = pages[i].querySelectorAll("img");
-
-    const frontImg = imgs.item(0);
-    const backImg = imgs.item(1);
 
     if(i > currentPage - visiblePages && i < currentPage + visiblePages)
         loadPage(pages[i]);
@@ -114,6 +109,12 @@ function animatie(id) { // -1 = previous page | 1 = next page
             prevButton.style.display = "inline";
         }
         
+        if(currentPage - visiblePages >= 1)
+            unloadPage(pages[currentPage - visiblePages]);
+        
+        if(currentPage + visiblePages <= numberOfPages)
+            loadPage(pages[currentPage + visiblePages]);
+
         currentPage++;
         prevButton.style.display = (currentPage === 4 ? "none" : "inline");
 
@@ -122,12 +123,6 @@ function animatie(id) { // -1 = previous page | 1 = next page
             bookWrapper.style.transform = "translateX(100%)";
             nextButton.style.display = "none";
         }
-
-        if(currentPage - visiblePages >= 1)
-            unloadPage(pages[currentPage - visiblePages]);
-        
-        if(currentPage + visiblePages <= numberOfPages)
-            loadPage(pages[currentPage + visiblePages]);
     }
 
     butonCuprins.style.left = (currentPage <= 3 ? "0px" : "-100px"); // translate left buton cuprin
