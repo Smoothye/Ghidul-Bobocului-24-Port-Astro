@@ -6,7 +6,7 @@ var nextButtonNarrow = document.getElementById("next-narrow");
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro          !!!
 var numberOfPagesNarrow = 88;
 var currentPageNarrow = 1;
-var visiblePagesNarrowNarrow = 10;
+var visiblePagesNarrowNarrow = 5; // si fata si spate
 
 var pagesNarrow = [];
 
