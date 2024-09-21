@@ -1,6 +1,10 @@
 var prevButtonNarrow = document.getElementById("prev-narrow");
 var nextButtonNarrow = document.getElementById("next-narrow");
 
+
+//!!! NUMARUL DE PAGINI DIN public/scripts/bookAnimation.js     !!!
+//!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro               !!!
+//    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro          !!!
 var numberOfPagesNarrow = 88;
 var currentPageNarrow = 1;
 

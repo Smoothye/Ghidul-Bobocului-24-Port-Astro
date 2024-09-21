@@ -3,8 +3,9 @@ var prevButton = document.getElementById("prev");
 var nextButton = document.getElementById("next");
 var butonCuprins = document.getElementById("buton-cuprins");
 
-//!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro            !!!
-//    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro       !!!
+//!!! NUMARUL DE PAGINI DIN  src/pages/ghid.astro                   !!!
+//!!! NUMARUL DE PAGINI DIN  public/scripts/bookAnimationNarrow.js  !!!
+//    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro              !!!
 var numberOfPages = 44; // numar total de pagini (ar trebui sa fie numar par) impartit la 2
 var currentPage = 1;
 
@@ -69,16 +70,17 @@ function animatie(id) { // -1 = previous page | 1 = next page
 
 function goToPage(pageNumber) {
 
+    // daca trebuie sa mearga mai putin de 20 de pagini se misca mai incet
+    const flipDelay = ( Math.abs(pageNumber - currentPage) < 20 ? 100 : 10 );
+
     function flip() {
 
         if(currentPage !== pageNumber) {
 
             animatie(currentPage < pageNumber ? 1 : -1)
-            setTimeout(flip, 10);
+            setTimeout(flip, flipDelay);
         }
     }
 
     flip();
-    // while(currentPage !== pageNumber)
-    //     animatie(currentPage < pageNumber ? 1 : -1);
 }
