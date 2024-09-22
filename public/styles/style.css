@@ -7,6 +7,16 @@
     src: url(../fonts/Poppins/Poppins-Bold.ttf);
     font-weight: 700;
 }
+@font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins/Poppins-Thin.ttf);
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url(../fonts/Poppins/Poppins-Light.ttf);
+    font-weight: 300;
+}
 
 :root {
     font-size: 1.5em;
@@ -31,7 +41,7 @@
     --book-page-height: var(--page-height);
     
     --buton-cuprins-width: 100px;
-    --buton-cuprins-height: 20px;
+    --buton-cuprins-height: 30px;
 
     /* parteneri */
     --card-parteneri-width: 400px;
@@ -85,9 +95,7 @@ main {
 button {
 
     cursor: pointer;
-    border: 1px solid black;
     border-bottom: unset;
-    background-color: transparent;
 
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -125,6 +133,8 @@ a {
 
     font-size: 2em;
     font-weight: bold;
+
+    text-align: center;
 
     color: var(--color-yellow);
     filter: drop-shadow(1px 1px 0 var(--color-orange)) drop-shadow(-1px 1px 0 var(--color-orange));
@@ -169,12 +179,16 @@ footer {
     gap: 10px 20px;
     grid-template-columns: var(--grid-columns-width);
     grid-template-rows: var(--grid-rows-height);
+
+    margin-bottom: 20px;
 }
 
 .grid-item {
 
     height: 100%;
     width: 100%;
+
+    border-radius: 10px;
 }
 
 #banner-ghid {
@@ -187,13 +201,16 @@ footer {
 
 #text-home-page {
     grid-area: text;
-    background-color: green;
-
     padding: 15px;
-
-    text-align: left;
-
     overflow-y: scroll;
+    
+    text-align: left;
+    
+    background-color: var(--color-light-blue);
+    color: var(--color-white);
+    
+    border: 2px solid var(--color-orange);
+    border-right: none;
 }
 
 #ghid {
@@ -203,8 +220,16 @@ footer {
 
 #parteneri {
     grid-area: parteneri;
-    background-color: red;
     transition: var(--viteza-zoom-on-hover);
+
+    background-color: var(--color-light-blue);
+    
+    color: var(--color-yellow);
+    font-size: 2em;
+
+    padding: 10px 0;
+
+    border: 2px solid var(--color-orange);
 }
 #parteneri:hover {
 
@@ -371,7 +396,7 @@ footer {
 #buton-cuprins {
 
     position: absolute;
-    top: -20px;
+    top: calc( -1 * var(--buton-cuprins-height) );
     left: 10px;
 
     width: var(--buton-cuprins-width);
@@ -379,8 +404,16 @@ footer {
 
     transition: left var(--page-flip-duration);
 
-    border-top-left-radius: 100%;
-    border-top-right-radius: 100%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+
+    background-color: var(--color-light-blue);
+    border: 1px solid var(--color-orange);
+    border-bottom: none;
+
+    color: var(--color-yellow);
+
+    font-size: 0.65em;
 }
 
 .page {
@@ -507,8 +540,17 @@ footer {
     left: 10px;
     top: calc(-1 * var(--buton-cuprins-height));
 
-    border-top-left-radius: 100%;
-    border-top-right-radius: 100%;
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+
+    background-color: var(--color-light-blue);
+    border: 1px solid var(--color-orange);
+    border-bottom: none;
+
+    color: var(--color-yellow);
+    text-shadow: 1px 1px 0 var(--color-orange);
+
+    font-size: 1em;
 }
 
 .content-narrow {
@@ -553,6 +595,11 @@ footer {
     bottom: -15%;
 
     font-size: 3rem;
+    color: var(--color-yellow);
+    filter: drop-shadow(1px 0 0 var(--color-orange))
+            drop-shadow(-1px 0 0 var(--color-orange))
+            drop-shadow(0 1px 0 var(--color-orange))
+            drop-shadow(0 -1px 0 var(--color-orange));
     
     z-index: 3;
 }
