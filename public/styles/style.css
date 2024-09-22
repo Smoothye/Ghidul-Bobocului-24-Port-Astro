@@ -125,6 +125,9 @@ a {
 
     font-size: 2em;
     font-weight: bold;
+
+    color: var(--color-yellow);
+    filter: drop-shadow(1px 1px 0 var(--color-orange)) drop-shadow(-1px 1px 0 var(--color-orange));
 }
 
 /* footer */
