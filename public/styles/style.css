@@ -235,6 +235,7 @@ footer {
     background-color: var(--color-light-blue);
     
     color: var(--color-yellow);
+    text-shadow: 2px 2px 0 var(--color-orange);
     font-size: 2em;
 
     padding: 10px 0;
