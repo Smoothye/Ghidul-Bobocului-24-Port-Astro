@@ -4,7 +4,7 @@ const { link, nume="nume", logo="", scaleLogo="1", borderLogo="" } = Astro.props
 <div class="card-partener">
     <a href={link} target="_blank">
         <div class="nume-partener flex"> {nume} </div>
-        <div class="logo-partener flex">
+        <div class="logo-partener">
             <img class={borderLogo} src={logo} style=`scale: ${scaleLogo};` />
         </div>
     </a>

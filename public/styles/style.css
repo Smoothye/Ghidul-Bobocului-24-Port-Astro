@@ -98,7 +98,7 @@ button {
     border-bottom: unset;
 
     user-select: none;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent; /* sa nu dea flash butonul cand se apasa pe ecran cu touch */
 }
 
 a {
@@ -138,6 +138,16 @@ a {
 
     color: var(--color-yellow);
     filter: drop-shadow(1px 1px 0 var(--color-orange)) drop-shadow(-1px 1px 0 var(--color-orange));
+
+    padding: 10px;
+}
+
+@media screen and (max-width: 37.5em /* 600px */) {
+    
+    #welcome {
+
+        font-size: 1.5em;
+    }
 }
 
 /* footer */
@@ -602,6 +612,9 @@ footer {
             drop-shadow(0 -1px 0 var(--color-orange));
     
     z-index: 3;
+
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 .right-arrow { right: 20px; }
 .left-arrow { left: 20px; }
