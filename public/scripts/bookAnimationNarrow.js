@@ -93,9 +93,8 @@ async function goToPageNarrow(pageNumber) {
 
     else {
 
-        loadPageNarrow(pagesNarrow[pageNumber - 1]);
+        loadPageNarrow(pagesNarrow[pageNumber - directie]);
         loadPageNarrow(pagesNarrow[pageNumber]);
-        loadPageNarrow(pagesNarrow[pageNumber + 1]);
         
         await new Promise(resolve => setTimeout(resolve, 100));
 
