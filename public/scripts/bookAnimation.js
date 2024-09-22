@@ -132,17 +132,6 @@ function animatie(id, loadPages=true) { // -1 = previous page | 1 = next page
     butonCuprins.style.left = (currentPage <= 3 ? "0px" : "-100px"); // translate left buton cuprin
 }
 
-function loadAllPages() {
-
-    for(let i = 1; i <= numberOfPages; i++) {
-
-        if(i > currentPage - visiblePages && i < currentPage + visiblePages)
-            loadPage(pages[i]);
-        
-        else
-            unloadPage(pages[i]);
-    }
-}
 async function goToPage(pageNumber) {
     
     const directie = (currentPage < pageNumber ? 1 : -1);
@@ -152,10 +141,10 @@ async function goToPage(pageNumber) {
     
     else {
             
-        // preload 2 pagini (spatele filei din stanga si fata celei din dreapta)
+        // load pagini din jurul destinatiei
+        loadPage(pages[pageNumber - 1]);
         loadPage(pages[pageNumber]);
-        loadPage(pages[pageNumber - directie]);
-        loadPage(pages[pageNumber + directie]);
+        loadPage(pages[pageNumber + 1]);
         
         // parcurge paginile incarcate fara a incarca altele
         await _goToPage(currentPage + visiblePages * directie, false)
@@ -164,7 +153,16 @@ async function goToPage(pageNumber) {
             animatie(directie, false);
 
         await new Promise(resolve => setTimeout(resolve, 500));
-        loadAllPages();
+        
+        // load all pages
+        for(let i = 1; i <= numberOfPages; i++) {
+
+            if(i > currentPage - visiblePages && i < currentPage + visiblePages)
+                loadPage(pages[i]);
+            
+            else
+                unloadPage(pages[i]);
+        }
     }
 }
 

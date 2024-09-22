@@ -6,7 +6,7 @@ var nextButtonNarrow = document.getElementById("next-narrow");
 //    SI DIN <HEAD> DIN   src/layouts/BaseLayout.astro          !!!
 var numberOfPagesNarrow = 88;
 var currentPageNarrow = 1;
-var visiblePagesNarrow = 5; // si fata si spate
+var visiblePagesNarrow = 6; // si fata si spate
 
 var pagesNarrow = [];
 
@@ -48,7 +48,7 @@ for(let i = numberOfPagesNarrow; i >= 1; i--) {
         unloadPageNarrow(pagesNarrow[i]);
 }
 
-function animatieNarrow(id) {
+function animatieNarrow(id, loadPages=true) {
 
     if(id === -1) { // previous page
 
@@ -56,21 +56,25 @@ function animatieNarrow(id) {
 
         pagesNarrow[--currentPageNarrow].classList.remove("flipped");
 
-        if(currentPageNarrow - visiblePagesNarrow >= 1)
-            loadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
-
-        if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
-            unloadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
+        if(loadPages) {
+            if(currentPageNarrow - visiblePagesNarrow >= 1)
+                loadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
+    
+            if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
+                unloadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
+        }
     }
     else { // next page
 
         if(currentPageNarrow === numberOfPagesNarrow) return;
 
-        if(currentPageNarrow - visiblePagesNarrow >= 1)
-            unloadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
-
-        if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
-            loadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
+        if(loadPages) {
+            if(currentPageNarrow - visiblePagesNarrow >= 1)
+                unloadPageNarrow(pagesNarrow[currentPageNarrow - visiblePagesNarrow]);
+    
+            if(currentPageNarrow + visiblePagesNarrow <= numberOfPagesNarrow)
+                loadPageNarrow(pagesNarrow[currentPageNarrow + visiblePagesNarrow]);
+        }
 
         pagesNarrow[currentPageNarrow++].classList.add("flipped");
 
@@ -80,8 +84,38 @@ function animatieNarrow(id) {
     nextButtonNarrow.style.display = (currentPageNarrow === 6 ? "none" : "inline");
 }
 
-function goToPageNarrow(pageNumber) {
+async function goToPageNarrow(pageNumber) {
+
+    const directie = (currentPageNarrow < pageNumber ? 1 : -1);
+
+    if( Math.abs(currentPageNarrow - pageNumber) < visiblePagesNarrow )
+        _goToPageNarrow(pageNumber);
+
+    else {
+
+        loadPageNarrow(pagesNarrow[pageNumber - 1]);
+        loadPageNarrow(pagesNarrow[pageNumber]);
+        loadPageNarrow(pagesNarrow[pageNumber + 1]);
+        
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        _goToPageNarrow(pageNumber, false);
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        for(let i = 1; i <= numberOfPagesNarrow; i++) {
+
+            if(i > currentPageNarrow - visiblePagesNarrow && i < currentPageNarrow + visiblePagesNarrow)
+                loadPageNarrow(pagesNarrow[i]);
+            
+            else
+                unloadPageNarrow(pagesNarrow[i]);
+        }
+    }
+}
+
+function _goToPageNarrow(pageNumber, loadPages=true) {
 
     while(currentPageNarrow !== pageNumber)
-        animatieNarrow(currentPageNarrow < pageNumber ? 1 : -1);
+        animatieNarrow(currentPageNarrow < pageNumber ? 1 : -1, loadPages);
 }
