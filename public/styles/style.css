@@ -307,12 +307,15 @@ a {
 
     position: absolute;
     top: -20px;
-    left: 0;
+    left: 10px;
 
     width: var(--buton-cuprins-width);
     height: var(--buton-cuprins-height);
 
     transition: left var(--page-flip-duration);
+
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
 }
 
 .page {
@@ -388,6 +391,9 @@ a {
     :root {
         touch-action: manipulation; /* disable double-tap zoom */
         --page-flip-duration: 1.5s;
+
+        --buton-cuprins-width: 150px;
+        --buton-cuprins-height: 30px;
     }
 }
 @media screen and (max-width: 26em /* 416px */) {
@@ -439,8 +445,11 @@ a {
     height: var(--buton-cuprins-height);
 
     position: absolute;
-    left: 0;
-    top: -20px;
+    left: 10px;
+    top: calc(-1 * var(--buton-cuprins-height));
+
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
 }
 
 .content-narrow {

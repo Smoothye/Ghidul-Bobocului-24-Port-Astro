@@ -129,7 +129,7 @@ function animatie(id, loadPages=true) { // -1 = previous page | 1 = next page
         }
     }
 
-    butonCuprins.style.left = (currentPage <= 3 ? "0px" : "-100px"); // translate left buton cuprin
+    butonCuprins.style.left = (currentPage <= 3 ? "10px" : "-110px"); // translate left buton cuprin
 }
 
 async function goToPage(pageNumber) {
