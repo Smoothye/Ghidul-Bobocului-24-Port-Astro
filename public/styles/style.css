@@ -198,7 +198,7 @@ a {
             'parteneri';
 
         --grid-columns-width: minmax(380px, 90vw);
-        --grid-rows-height: 100px minmax(fit-content, 400px) var(--page-height) 100px;
+        --grid-rows-height: 100px auto var(--page-height) 100px;
         --grid-width: 100%;
     }
     #text-home-page {
