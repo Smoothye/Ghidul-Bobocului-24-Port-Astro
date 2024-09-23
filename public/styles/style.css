@@ -78,6 +78,8 @@
 body {
 
     background-color: var(--color-dark-blue);
+    /* background-image: url("../media/elemente/background-dark.svg"); */
+    /* background-image: url("../media/elemente/background-light.svg"); */
 
     width: 100vw;
     min-width: 400px;
@@ -155,6 +157,7 @@ footer {
 
     background-color: var(--color-light-blue);
     padding: 20px 0;
+
 }
 
 .social {
