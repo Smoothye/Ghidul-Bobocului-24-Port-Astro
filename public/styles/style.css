@@ -341,12 +341,11 @@ footer {
     height: 30%;
     top: 0;
 
-    font-weight: 900;
+    font-weight: bold;
     font-size: 1em;
+    color: var(--color-white);
 
     text-align: center;
-
-    -webkit-text-stroke: 1px #fff;
 }
 
 .logo-partener {
