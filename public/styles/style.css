@@ -299,7 +299,7 @@ footer {
 
     font-size: larger;
 
-    text-align: justify;
+    text-align: center;
 
     background-color: var(--color-light-blue);
     color: var(--color-yellow);
