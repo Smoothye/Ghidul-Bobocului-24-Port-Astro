@@ -224,7 +224,7 @@ footer {
     border: 2px solid var(--color-yellow);
     border-right: none;
 }
-#text-home-page::-webkit-scrollbar {
+/* #text-home-page::-webkit-scrollbar {
 
     width: 10px;
 }
@@ -244,7 +244,7 @@ footer {
 #text-home-page::-webkit-scrollbar-thumb:hover {
 
     background: var(--color-orange);
-}
+} */
 
 #ghid {
     grid-area: ghid;
